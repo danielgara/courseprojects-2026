@@ -4,6 +4,7 @@ import AboutView from '@/views/AboutView.vue';
 import BooksIndexView from '@/views/BooksIndexView.vue';
 import BooksShowView from '@/views/BooksShowView.vue';
 import BooksCreateView from '@/views/BooksCreateView.vue';
+import VariableView from '@/views/VariableView.vue';
 
 
 const router = createRouter({
@@ -14,6 +15,7 @@ const router = createRouter({
     { path: '/books', name: 'books', component: BooksIndexView, meta: { title: 'Books' } },
     { path: '/books/create', name: 'books.create', component: BooksCreateView, meta: { title: 'Create Book' } },
     { path: '/books/:id', name: 'book', component: BooksShowView, meta: { title: 'Book' } },
+    { path: '/variable', name: 'variable', component: VariableView, meta: { title: 'Variable' } },
   ],
 });
 

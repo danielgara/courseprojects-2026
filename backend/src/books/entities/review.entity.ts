@@ -7,6 +7,7 @@ import {
   RelationId,
   CreateDateColumn,
 } from 'typeorm';
+import type { Relation } from 'typeorm';
 import { Book } from './book.entity.js';
 
 @Entity()
@@ -16,7 +17,7 @@ export class Review {
 
   @ManyToOne(() => Book, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'bookId' })
-  book: Book;
+  book: Relation<Book>;
 
   @RelationId((review: Review) => review.book)
   bookId: number;

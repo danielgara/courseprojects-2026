@@ -7,7 +7,7 @@ import {
   RelationId,
   CreateDateColumn,
 } from 'typeorm';
-import { Book } from './book.entity';
+import { Book } from './book.entity.js';
 
 @Entity()
 export class Review {

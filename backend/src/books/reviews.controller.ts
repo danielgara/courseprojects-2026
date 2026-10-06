@@ -1,10 +1,12 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Logger } from '@nestjs/common';
 import { ReviewsService } from './reviews.service.js';
 import { CreateReviewDto } from './dto/create-review.dto.js';
 import { Review } from './entities/review.entity.js';
 
 @Controller('reviews')
 export class ReviewsController {
+  private readonly logger = new Logger(ReviewsController.name);
+
   constructor(private readonly reviewsService: ReviewsService) {}
 
   @Get()
@@ -19,6 +21,7 @@ export class ReviewsController {
 
   @Post()
   create(@Body() createReviewDto: CreateReviewDto): Promise<Review> {
+    this.logger.log(`Creating review: ${JSON.stringify(createReviewDto)}`);
     return this.reviewsService.create(createReviewDto);
   }
 }

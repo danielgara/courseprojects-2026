@@ -3,6 +3,7 @@ import { CreateReviewDto } from './dto/create-review.dto.js';
 import { Review } from './entities/review.entity.js';
 export declare class ReviewsController {
     private readonly reviewsService;
+    private readonly logger;
     constructor(reviewsService: ReviewsService);
     findAll(): Promise<Review[]>;
     findByBookId(bookId: string): Promise<Review[]>;

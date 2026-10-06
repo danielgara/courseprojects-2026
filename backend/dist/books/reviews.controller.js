@@ -10,11 +10,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+var ReviewsController_1;
+import { Body, Controller, Get, Param, Post, Logger } from '@nestjs/common';
 import { ReviewsService } from './reviews.service.js';
 import { CreateReviewDto } from './dto/create-review.dto.js';
-let ReviewsController = class ReviewsController {
+let ReviewsController = ReviewsController_1 = class ReviewsController {
     reviewsService;
+    logger = new Logger(ReviewsController_1.name);
     constructor(reviewsService) {
         this.reviewsService = reviewsService;
     }
@@ -25,6 +27,7 @@ let ReviewsController = class ReviewsController {
         return this.reviewsService.findByBookId(Number(bookId));
     }
     create(createReviewDto) {
+        this.logger.log(`Creating review: ${JSON.stringify(createReviewDto)}`);
         return this.reviewsService.create(createReviewDto);
     }
 };
@@ -48,7 +51,7 @@ __decorate([
     __metadata("design:paramtypes", [CreateReviewDto]),
     __metadata("design:returntype", Promise)
 ], ReviewsController.prototype, "create", null);
-ReviewsController = __decorate([
+ReviewsController = ReviewsController_1 = __decorate([
     Controller('reviews'),
     __metadata("design:paramtypes", [ReviewsService])
 ], ReviewsController);

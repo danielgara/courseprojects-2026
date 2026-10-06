@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import { BookService } from '@/services/BookService.js';
 import type { BookInterface } from '@/interfaces/BookInterface.js';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, onUpdated } from 'vue';
 
 const books = ref<BookInterface[]>([]);
 
 onMounted(async () => {
+  debugger;
   books.value = await BookService.getBooks();
+});
+
+onUpdated(async () => {
+  debugger;
 });
 </script>
 

@@ -8,9 +8,11 @@ export default defineNuxtConfig({
     '/books/**': { prerender: true },
     '/': { ssr: true },
     '/about': { ssr: false },
+    '/counter': { ssr: true },
   },
   nitro: {
     prerender: {
+      crawlLinks: false,
       routes: books.map(b => `/books/${b.id}`)
     }
   },
